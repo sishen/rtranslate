@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ye Dingding"]
-  s.date = %q{2008-12-16}
+  s.date = %q{2008-12-15}
   s.description = %q{rtranslate is a simple, unofficial, ruby client API for using Google Translate.}
   s.email = %q{yedingding@gmail.com}
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
