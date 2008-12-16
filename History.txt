@@ -1,0 +1,10 @@
+v1.0 Dec 16th, 2008
+* using the Google AJAX Language API instead of scrape
+* add the batch translation support
+* refactor the whole project
+
+v0.2 Nov 16, 2007
+* add a command line tool.
+
+v0.1 Nov 15, 2007
+* initial release
