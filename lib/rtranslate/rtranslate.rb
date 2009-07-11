@@ -5,13 +5,6 @@
 # Copyright:: Copyright (c) 2007 Dingding Ye
 # License::   Distributes under MIT License
 
-begin
-  require 'json'
-rescue LoadError
-  require 'rubygems'
-  require 'json'
-end
-
 module Translate
   class UnsupportedLanguagePair < StandardError
   end
@@ -30,6 +23,7 @@ module Translate
       def translate(text, from, to)
         RTranslate.new.translate(text, { :from => from, :to => to })
       end
+      alias_method :t, :translate
 
       def translate_strings(text_array, from, to)
         RTranslate.new.translate_strings(text_array, {:from => from, :to => to})
@@ -42,8 +36,6 @@ module Translate
       def batch_translate(translate_options)
         RTranslate.new.batch_translate(translate_options)
       end
-
-      alias_method :t, :translate
     end
 
     def initialize(version = DEFAULT_VERSION, key = nil, default_from = nil, default_to = nil)
@@ -121,17 +113,15 @@ module Translate
 
     private
     def do_translate(url) #:nodoc:
-      begin
-        jsondoc = open(URI.escape(url)).read
-        response = JSON.parse(jsondoc)
-        if response["responseStatus"] == 200
-          response["responseData"]["translatedText"]
-        else
-          raise StandardError, response["responseDetails"]
-        end
-      rescue Exception => e
-        raise StandardError, e.message
+      jsondoc = open(URI.escape(url)).read
+      response = JSON.parse(jsondoc)
+      if response["responseStatus"] == 200
+        response["responseData"]["translatedText"]
+      else
+        raise StandardError, response["responseDetails"]
       end
+    rescue Exception => e
+      raise StandardError, e.message
     end
   end
 end

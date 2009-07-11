@@ -10,6 +10,7 @@ opts = OptionParser.new do |opts|
   opts.banner = <<-EOF
   Usage:
     rtranslate -f lang -t lang text
+    rtranslate -d text
   EOF
 
   opts.on("-fLANG", "--from LANG", "From Language LANG") do |x|
@@ -18,6 +19,10 @@ opts = OptionParser.new do |opts|
 
   opts.on("-tLANG", "--to LANG", "To Language LANG") do |x|
     options[:to] = x
+  end
+
+  opts.on("-d", "--detect", "Detect the text") do
+    options[:detect] = true
   end
 
   opts.on("-h", "--help", "Show this message") do
@@ -29,9 +34,13 @@ end
 opts.parse!(ARGV)
 text = ARGV.shift
 
-if options[:from].nil? || options[:to].nil? || text.empty?
+unless (options[:detect] || (options[:from] && options[:to]) ) && text
   puts opts
   exit
 end
 
-STDOUT.puts(Translate.t(text, options[:from], options[:to]))
+if options[:detect]
+  STDOUT.puts(Translate.d(text))
+else
+  STDOUT.puts(Translate.t(text, options[:from], options[:to]))
+end

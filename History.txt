@@ -1,3 +1,6 @@
+V1.1 July 11th, 2009
+* Add Google AJAX Language Dection support
+
 v1.0 Dec 16th, 2008
 * using the Google AJAX Language API instead of scrape
 * add the batch translation support
