@@ -7,5 +7,7 @@ bin/rtranslate
 lib/rtranslate.rb
 lib/rtranslate/language.rb
 lib/rtranslate/rtranslate.rb
+lib/rtranslate/detection.rb
 rtranslate.gemspec
 tests/ts_translate.rb
+tests/ts_detection.rb

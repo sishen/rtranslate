@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.files = ["History.txt", "MIT-LICENSE", "Manifest.txt", "README.txt", "Rakefile", "rtranslate.gemspec", "bin/rtranslate",
              "lib/rtranslate.rb", "lib/rtranslate/language.rb", "lib/rtranslate/rtranslate.rb", "tests/ts_translate.rb", 
              "bin/rtranslate", "lib/rtranslate.rb", "lib/rtranslate/language.rb",
-             "lib/rtranslate/rtranslate.rb", "lib/rtranslate/detection.rb"]
+             "lib/rtranslate/rtranslate.rb", "lib/rtranslate/detection.rb", "tests/ts_detection.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://sishen.lifegoo.com}
   s.rdoc_options = ["--main", "README.txt"]
