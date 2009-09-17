@@ -61,8 +61,8 @@ module Translate
     def translate(text, options = { })
       from = options[:from] || @default_from
       to = options[:to] || @default_to
-      if Google::Language.supported?(from) && Google::Language.supported?(to)
-        from = Google::Language.abbrev(from)
+      if (from.nil? || Google::Language.supported?(from)) && Google::Language.supported?(to)
+        from = from ? Google::Language.abbrev(from) : nil
         to = Google::Language.abbrev(to)
         langpair = "#{from}|#{to}"
         url = "#{GOOGLE_TRANSLATE_URL}?q=#{text}&langpair=#{langpair}&v=#{@version}"
