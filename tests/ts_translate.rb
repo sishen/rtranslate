@@ -9,14 +9,27 @@ class Translate::TranslateTest < Test::Unit::TestCase
   def test_english_translate
     assert_equal("مرحبا العالم", Translate.t("Hello world", "ENGLISH", "ARABIC"));
     assert_equal("世界您好", Translate.t("Hello world", "ENGLISH", "CHINESE_SIMPLIFIED"));
-    assert_equal("Bonjour le monde", Translate.t("Hello world", "ENGLISH", "FRENCH"));
+    assert_equal("Bonjour tout le monde", Translate.t("Hello world", "ENGLISH", "FRENCH"));
     assert_equal("Hallo Welt", Translate.t("Hello world", "ENGLISH", "GERMAN"));
-    assert_equal("Ciao mondo", Translate.t("Hello world", "ENGLISH", "ITALIAN"));
-    assert_equal("こんにちは世界", Translate.t("Hello world", "ENGLISH", "JAPANESE"));
-    assert_equal("여보세요 세계", Translate.t("Hello world", "ENGLISH", "KOREAN"));
+    assert_equal("Ciao a tutti", Translate.t("Hello world", "ENGLISH", "ITALIAN"));
+    assert_equal("こんにちは、世界", Translate.t("Hello world", "ENGLISH", "JAPANESE"));
+    assert_equal("안녕하세요 세상", Translate.t("Hello world", "ENGLISH", "KOREAN"));
     assert_equal("Olá mundo", Translate.t("Hello world", "ENGLISH", "PORTUGUESE"));
     assert_equal("Привет мир", Translate.t("Hello world", "ENGLISH", "RUSSIAN"));
-    assert_equal("Hola mundo", Translate.t("Hello world", "ENGLISH", "SPANISH"));
+    assert_equal("¡Hola, mundo", Translate.t("Hello world", "ENGLISH", "SPANISH"));
+  end
+
+  def test_auto_detect_translate
+    assert_equal("مرحبا العالم", Translate.t("Hello world", nil, "ARABIC"));
+    assert_equal("世界您好", Translate.t("Hello world", nil, "CHINESE_SIMPLIFIED"));
+    assert_equal("Bonjour tout le monde", Translate.t("Hello world", nil, "FRENCH"));
+    assert_equal("Hallo Welt", Translate.t("Hello world", nil, "GERMAN"));
+    assert_equal("Ciao a tutti", Translate.t("Hello world", nil, "ITALIAN"));
+    assert_equal("こんにちは、世界", Translate.t("Hello world", nil, "JAPANESE"));
+    assert_equal("안녕하세요 세상", Translate.t("Hello world", nil, "KOREAN"));
+    assert_equal("Olá mundo", Translate.t("Hello world", nil, "PORTUGUESE"));
+    assert_equal("Привет мир", Translate.t("Hello world", nil, "RUSSIAN"));
+    assert_equal("¡Hola, mundo", Translate.t("Hello world", nil, "SPANISH"));
   end
 
   def test_chinese_translate

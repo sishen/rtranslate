@@ -34,7 +34,7 @@ end
 opts.parse!(ARGV)
 text = ARGV.shift
 
-unless (options[:detect] || (options[:from] && options[:to]) ) && text
+unless (options[:detect] || options[:to] ) && text
   puts opts
   exit
 end
