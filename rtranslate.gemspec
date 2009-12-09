@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
              "bin/rtranslate", "lib/rtranslate.rb", "lib/rtranslate/language.rb",
              "lib/rtranslate/rtranslate.rb", "lib/rtranslate/detection.rb", "tests/ts_detection.rb"]
   s.has_rdoc = true
-  s.homepage = %q{http://sishen.lifegoo.com}
+  s.homepage = %q{http://github.com/sishen}
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.2.0}

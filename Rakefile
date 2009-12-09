@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'hoe'
 
-Hoe.new('rtranslate', '1.1') do |p|
+Hoe.new('rtranslate', '1.2') do |p|
   p.rubyforge_name = 'rtranslate'
   p.author = 'Ye Dingding'
   p.email = 'yedingding@gmail.com'
