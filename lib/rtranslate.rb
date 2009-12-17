@@ -11,6 +11,10 @@ rescue LoadError
   require 'json'
 end
 
+unless defined?(ActiveSupport)
+  require 'activesupport'
+end
+
 $KCODE = 'u'
 
 include Translate

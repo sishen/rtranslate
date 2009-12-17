@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{rtranslate}
-  s.version = "1.2"
+  s.version = "1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ye Dingding"]
@@ -27,14 +27,17 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<hoe>, [">= 1.7.0"])
       s.add_development_dependency(%q<rspec>, [">= 1.1.4"])
       s.add_development_dependency(%q<json>, [">= 1.1.3"])
+      s.add_development_dependency(%q<activesupprt>, [">= 2.2.0"])
     else
       s.add_dependency(%q<hoe>, [">= 1.7.0"])
       s.add_dependency(%q<rspec>, [">= 1.1.4"])
       s.add_dependency(%q<json>, [">= 1.1.3"])
+      s.add_dependency(%q<activesupport>, [">= 2.2.0"])
     end
   else
     s.add_dependency(%q<hoe>, [">= 1.7.0"])
     s.add_dependency(%q<rspec>, [">= 1.1.4"])
     s.add_dependency(%q<json>, [">= 1.1.3"])
+    s.add_dependency(%q<activesupport>, [">= 2.2.0"])
   end
 end

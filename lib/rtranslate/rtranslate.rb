@@ -65,11 +65,14 @@ module Translate
         from = from ? Google::Language.abbrev(from) : nil
         to = Google::Language.abbrev(to)
         langpair = "#{from}|#{to}"
-        url = "#{GOOGLE_TRANSLATE_URL}?q=#{text}&langpair=#{langpair}&v=#{@version}"
-        if @key
-          url << "&key=#{@key}"
+
+        text.mb_chars.scan(/(.{1,500})/).inject("") do |result, st|
+          url = "#{GOOGLE_TRANSLATE_URL}?q=#{st}&langpair=#{langpair}&v=#{@version}"
+          if @key
+            url << "&key=#{@key}"
+          end
+          result += do_translate(url)
         end
-        do_translate(url)
       else
         raise UnsupportedLanguagePair, "Translation from '#{from}' to '#{to}' isn't supported yet!"
       end
