@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'hoe'
 
-Hoe.new('rtranslate', '1.3') do |p|
-  p.rubyforge_name = 'rtranslate'
+Hoe.new('sishen-rtranslate', '1.3') do |p|
+  p.rubyforge_name = 'sishen-rtranslate'
   p.author = 'Ye Dingding'
   p.email = 'yedingding@gmail.com'
   p.url = 'http://github.com/sishen/rtranslate'

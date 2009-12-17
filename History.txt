@@ -1,3 +1,6 @@
+V1.3 Dec 18th, 2009
+* Enable the translation for the long string which is supposed to be more than 500 characters. The lib will split the text into several groups 500 by 500 and then join the response translated text together. 
+
 V1.2 Sep 17th, 2009
 * Enable the auto-detect source features of google translate api
 
