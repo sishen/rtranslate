@@ -58,6 +58,7 @@ module Translate
     # Configuration options:
     # * <tt>:from</tt> - The source language
     # * <tt>:to</tt> - The target language
+    # * <tt>:userip</tt> - The IP address of the end-user on whose behalf the request is being made
     def translate(text, options = { })
       from = options[:from] || @default_from
       to = options[:to] || @default_to
@@ -68,9 +69,15 @@ module Translate
 
         text.mb_chars.scan(/(.{1,500})/).inject("") do |result, st|
           url = "#{GOOGLE_TRANSLATE_URL}?q=#{st}&langpair=#{langpair}&v=#{@version}"
+          
           if @key
             url << "&key=#{@key}"
           end
+          
+          if options[:userip]
+            url << "&userip=#{options[:userip]}"
+          end
+          
           result += do_translate(url)
         end
       else
