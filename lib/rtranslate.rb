@@ -21,11 +21,11 @@ include Translate
 def Translate.t(text, from, to)
   RTranslate.translate(text, from, to)
 rescue
-  "Error: " + $!
+  "Error: #{$!}"
 end
 
 def Translate.d(text)
   Detection.detect(text)
 rescue
-  "Error: " + $!
+  "Error: #{$!}"
 end
