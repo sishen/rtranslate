@@ -45,13 +45,13 @@ module Translate
       @key = key
     end
 
-    def detect(text, details = false)
+    def detect(text, options = {:details => false})
       url = "#{GOOGLE_DETECTION_URL}?q=#{CGI.escape(text)}&v=#{@version}"
-      if @key
-        url << "&key=#{@key}"
-      end
+      url << "&key=#{@key}" if @key
+      url << "&userip=#{options[:userip]}" if options[:userip]
+      
       detection_response = do_detect(url)
-      details ? detection_response : detection_response.abbrev
+      options[:details] ? detection_response : detection_response.abbrev
     end
 
     private
