@@ -46,7 +46,7 @@ module Translate
     end
 
     def detect(text, details = false)
-      url = "#{GOOGLE_DETECTION_URL}?q=#{text}&v=#{@version}"
+      url = "#{GOOGLE_DETECTION_URL}?q=#{CGI.escape(text)}&v=#{@version}"
       if @key
         url << "&key=#{@key}"
       end
@@ -56,7 +56,7 @@ module Translate
 
     private
     def do_detect(url)
-      jsondoc = open(URI.escape(url)).read
+      jsondoc = Net::HTTP.get(URI.parse(url))
       response = JSON.parse(jsondoc)
       if response["responseStatus"] == 200
         DetectionResponse.new(response["responseData"])

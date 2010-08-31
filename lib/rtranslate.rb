@@ -2,7 +2,8 @@ require File.join(File.dirname(__FILE__), 'rtranslate/language')
 require File.join(File.dirname(__FILE__), 'rtranslate/rtranslate')
 require File.join(File.dirname(__FILE__), 'rtranslate/detection')
 require 'uri'
-require 'open-uri'
+require 'cgi'
+require 'net/http'
 
 begin
   require 'json'
@@ -12,7 +13,7 @@ rescue LoadError
 end
 
 unless defined?(ActiveSupport)
-  require 'activesupport'
+  require 'active_support'
 end
 
 $KCODE = 'u'

@@ -66,8 +66,8 @@ module Translate
         to = Google::Language.abbrev(to)
         langpair = "#{from}|#{to}"
 
-        text.mb_chars.scan(/(.{1,500})/).inject("") do |result, st|
-          url = "#{GOOGLE_TRANSLATE_URL}?q=#{st}&langpair=#{langpair}&v=#{@version}"
+        text.mb_chars.scan(/(.{1,300})/).inject("") do |result, st|
+          url = "#{GOOGLE_TRANSLATE_URL}?q=#{CGI.escape(st.to_s)}&langpair=#{CGI.escape(langpair)}&v=#{@version}"
           if @key
             url << "&key=#{@key}"
           end
@@ -116,7 +116,7 @@ module Translate
 
     private
     def do_translate(url) #:nodoc:
-      jsondoc = open(URI.escape(url)).read
+      jsondoc = Net::HTTP.get(URI.parse(url))
       response = JSON.parse(jsondoc)
       if response["responseStatus"] == 200
         response["responseData"]["translatedText"]
