@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require File.join(File.dirname(__FILE__), 'rtranslate/language')
 require File.join(File.dirname(__FILE__), 'rtranslate/rtranslate')
 require File.join(File.dirname(__FILE__), 'rtranslate/detection')
@@ -12,21 +14,21 @@ rescue LoadError
   require 'json'
 end
 
+$KCODE = 'u'
+
 unless defined?(ActiveSupport)
   require 'active_support'
 end
-
-$KCODE = 'u'
 
 include Translate
 def Translate.t(text, from, to)
   RTranslate.translate(text, from, to)
 rescue
-  "Error: " + $!
+  "Error: #{$!}"
 end
 
 def Translate.d(text)
   Detection.detect(text)
 rescue
-  "Error: " + $!
+  "Error: #{$!}"
 end
