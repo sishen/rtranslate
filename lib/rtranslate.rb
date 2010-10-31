@@ -14,10 +14,11 @@ rescue LoadError
   require 'json'
 end
 
-$KCODE = 'u'
-
+$KCODE = 'u' unless RUBY_VERSION >= "1.9"
+ 
 unless defined?(ActiveSupport)
   require 'active_support'
+  require 'active_support/core_ext'
 end
 
 include Translate

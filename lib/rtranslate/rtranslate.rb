@@ -67,12 +67,12 @@ module Translate
         to = Google::Language.abbrev(to)
         langpair = "#{from}|#{to}"
 
-        text.mb_chars.scan(/(.{1,300})/).inject("") do |result, st|
+        text.mb_chars.scan(/(.{1,300})/).flatten.inject("") do |result, st|
           url = "#{GOOGLE_TRANSLATE_URL}?q=#{CGI.escape(st.to_s)}&langpair=#{CGI.escape(langpair)}&v=#{@version}"
           url << "&key=#{@key}" if @key          
           url << "&userip=#{options[:userip]}" if options[:userip]
           
-          result += do_translate(url)
+          result += CGI.unescapeHTML(do_translate(url))
         end
       else
         raise UnsupportedLanguagePair, "Translation from '#{from}' to '#{to}' isn't supported yet!"

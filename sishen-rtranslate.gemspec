@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sishen-rtranslate}
-  s.version = "1.4"
+  s.version = "1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ye Dingding"]
-  s.date = %q{2010-08-31}
+  s.date = %q{2010-10-31}
   s.default_executable = %q{rtranslate}
   s.description = %q{A simple, unofficial, ruby client API for using Google Translate.}
   s.email = %q{yedingding@gmail.com}
