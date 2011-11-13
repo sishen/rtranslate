@@ -44,11 +44,11 @@ module Translate
       @default_from = default_from
       @default_to = default_to
 
-      if @default_from && !(Google::Lanauage.supported?(@default_from))
+      if @default_from && !(Google::Language.supported?(@default_from))
         raise StandardError, "Unsupported source language '#{@default_from}'"
       end
 
-      if @default_to && !(Google::Lanauage.supported?(@default_to))
+      if @default_to && !(Google::Language.supported?(@default_to))
         raise StandardError, "Unsupported destination language '#{@default_to}'"
       end
     end
