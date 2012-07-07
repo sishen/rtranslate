@@ -42,7 +42,7 @@ module Google
       'gn' => 'GUARANI',
       'gu' => 'GUJARATI',
 
-      'iw' => 'HEBREW',
+      'he' => 'HEBREW',
       'hi' => 'HINDI',
       'hu' => 'HUNGARIAN',
 

@@ -3,7 +3,8 @@ A simple, unofficial, ruby client API for using Google Translate.
 
 == Install
 
-sudo gem install sishen-rtranslate
+# in your Gemfile:
+gem "sishen-rtranslate" , :require => 'rtranslate', :git => 'git://github.com/zed-0xff/rtranslate.git'
 
 == Usage
 1.
